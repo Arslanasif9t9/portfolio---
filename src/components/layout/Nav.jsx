@@ -2,42 +2,52 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { profile, navItems } from '../../data/profile.js';
+import { getLenis } from '../../hooks/useSmoothScroll.js';
 
 export default function Nav() {
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Hide on scroll down, reveal on scroll up — keeps the viewport clear
-  // while reading but puts navigation one gesture away.
+  // The header stays put. It used to retract on scroll-down and return on
+  // scroll-up, which reads as "the nav disappeared" — on a portfolio the
+  // whole point is that Contact is always one click away. All this tracks
+  // now is whether to paint the backdrop, which only matters once the page
+  // has moved off the hero.
   useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 40);
-      setHidden(y > last && y > 200);
-      last = y;
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // A locked body behind an open menu prevents the page scrolling underneath.
+  // Freeze the page behind an open menu. The body lock alone is not enough:
+  // Lenis drives the window's scroll itself, so it happily keeps scrolling
+  // the page underneath the overlay unless it is explicitly stopped.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    const lenis = getLenis();
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = '';
+      lenis?.start();
+    }
     return () => {
       document.body.style.overflow = '';
+      getLenis()?.start();
     };
   }, [menuOpen]);
 
   return (
     <>
       <motion.header
-        initial={{ y: -80 }}
-        animate={{ y: hidden ? -100 : 0 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-          scrolled ? 'bg-ink-900/80 backdrop-blur-xl border-b border-gold-700/20' : ''
+          scrolled
+            ? 'bg-ink-900/85 backdrop-blur-xl border-b border-gold-700/20'
+            : 'border-b border-transparent'
         }`}
       >
         <nav className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">

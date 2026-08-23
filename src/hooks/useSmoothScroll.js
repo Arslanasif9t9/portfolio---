@@ -2,6 +2,15 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 
 /**
+ * The live Lenis instance, or null when smooth scrolling is off (reduced
+ * motion, or before mount). Anything that needs to freeze the page — an
+ * open overlay, for one — has to go through this: Lenis scrolls the window
+ * programmatically, so `body { overflow: hidden }` does not stop it.
+ */
+let lenis = null;
+export const getLenis = () => lenis;
+
+/**
  * Lenis-driven inertial scrolling — the single biggest cue that a site
  * was built rather than assembled. Skipped entirely when the visitor has
  * asked for reduced motion, so they keep native scrolling.
@@ -16,7 +25,7 @@ export function useSmoothScroll() {
     // lerp rather than duration: the scroll eases continuously toward the
     // pointer's target instead of restarting a fixed ramp on every notch,
     // which is what makes fast flicks feel smooth rather than steppy.
-    const lenis = new Lenis({
+    lenis = new Lenis({
       lerp: 0.085,
       wheelMultiplier: 1,
       smoothWheel: true,
@@ -51,6 +60,7 @@ export function useSmoothScroll() {
       document.removeEventListener('click', onAnchorClick);
       cancelAnimationFrame(frame);
       lenis.destroy();
+      lenis = null;
     };
   }, []);
 }
