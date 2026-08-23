@@ -43,7 +43,7 @@ export default function Nav() {
         <nav className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
           <a
             href="#top"
-            className="font-mono text-sm text-bone-100 hover:text-gold-400 transition-colors"
+            className="flex items-center py-3 font-mono text-sm text-bone-100 hover:text-gold-400 transition-colors"
           >
             {profile.wordmark}
           </a>
@@ -53,10 +53,10 @@ export default function Nav() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="group relative font-mono text-xs tracking-[0.15em] uppercase text-bone-400 hover:text-bone-100 transition-colors"
+                  className="group relative flex items-center py-3 font-mono text-xs tracking-[0.15em] uppercase text-bone-400 hover:text-bone-100 transition-colors"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold-400 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-2 left-0 h-px w-0 bg-gold-400 transition-all duration-300 group-hover:w-full" />
                 </a>
               </li>
             ))}

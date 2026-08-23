@@ -102,7 +102,7 @@ export default function Hero() {
           >
             {profile.roles.map((role, i) => (
               <span key={role} className="flex items-center gap-3">
-                {i > 0 && <span className="text-gold-700">/</span>}
+                {i > 0 && <span aria-hidden className="text-gold-600">/</span>}
                 {role}
               </span>
             ))}
@@ -164,7 +164,7 @@ export default function Hero() {
         className="absolute bottom-6 left-6 lg:left-1/2 lg:-translate-x-1/2 flex flex-col items-center gap-1.5 text-bone-400 hover:text-gold-400 transition-colors"
         aria-label="Scroll to about section"
       >
-        <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
+        <span className="font-mono text-[11px] tracking-[0.25em] uppercase">
           Scroll
         </span>
         <motion.span

@@ -111,7 +111,7 @@ export default function About() {
                     }`}
                   />
                 </span>
-                <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-bone-100">
+                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-bone-100">
                   {available ? label : 'Not taking work'}
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function About() {
                 <div className="font-display text-xl uppercase leading-none text-bone-100">
                   {profile.name}
                 </div>
-                <div className="mt-1.5 font-mono text-[9px] tracking-[0.22em] uppercase text-gold-400">
+                <div className="mt-1.5 font-mono text-[11px] tracking-[0.22em] uppercase text-gold-400">
                   {profile.title}
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function About() {
               <div className="font-display text-4xl md:text-5xl text-gold-grad">
                 {stat.value}
               </div>
-              <div className="mt-2 font-mono text-[10px] tracking-[0.2em] uppercase text-bone-400">
+              <div className="mt-2 font-mono text-[11px] tracking-[0.2em] uppercase text-bone-400">
                 {stat.label}
               </div>
             </motion.div>

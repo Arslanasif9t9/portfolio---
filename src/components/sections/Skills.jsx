@@ -25,7 +25,7 @@ export default function Skills() {
               variants={fadeUp}
               className="panel rounded-lg p-8 md:p-10 hover:panel-lit transition-all duration-500"
             >
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-gold-400">
+              <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-gold-400">
                 {group.kicker}
               </div>
 
@@ -45,7 +45,7 @@ export default function Skills() {
                   <motion.li
                     key={t}
                     variants={pop}
-                    className="font-mono text-[10px] tracking-[0.12em] uppercase text-bone-400 border border-gold-700/35 rounded px-2.5 py-1.5"
+                    className="font-mono text-[11px] tracking-[0.12em] uppercase text-bone-400 border border-gold-700/35 rounded px-2.5 py-1.5"
                   >
                     {t}
                   </motion.li>
@@ -65,7 +65,7 @@ export default function Skills() {
         >
           <motion.span
             variants={pop}
-            className="font-mono text-[10px] tracking-[0.22em] uppercase text-gold-700"
+            className="font-mono text-[11px] tracking-[0.22em] uppercase text-gold-700"
           >
             Tooling //
           </motion.span>
@@ -77,7 +77,7 @@ export default function Skills() {
             >
               {t}
               {i < tooling.length - 1 && (
-                <span className="ml-3 text-gold-700">·</span>
+                <span aria-hidden className="ml-3 text-gold-600">·</span>
               )}
             </motion.span>
           ))}

@@ -9,18 +9,18 @@ export default function Footer() {
           {profile.wordmark}
         </span>
 
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-bone-400">
+        <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-bone-400">
           Built with React &amp; Tailwind
         </p>
 
         <div className="flex items-center gap-6">
-          <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-bone-400">
+          <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-bone-400">
             © {new Date().getFullYear()} {profile.name}
           </span>
           <a
             href="#top"
             aria-label="Back to top"
-            className="grid h-9 w-9 place-items-center rounded-full border border-gold-700/35 text-bone-400 hover:text-gold-400 hover:border-gold-400 transition-all duration-300"
+            className="grid h-11 w-11 place-items-center rounded-full border border-gold-700/35 text-bone-400 hover:text-gold-400 hover:border-gold-400 transition-all duration-300"
           >
             <ArrowUp size={15} />
           </a>

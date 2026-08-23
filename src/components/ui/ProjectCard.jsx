@@ -48,11 +48,11 @@ export default function ProjectCard({ project, index, total }) {
         <div className="grid lg:grid-cols-[1.4fr_1fr]">
           {/* Left — the pitch */}
           <div className="p-7 md:p-9">
-            <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-gold-400">
+            <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase text-gold-400">
               <span className="tabular-nums">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="text-gold-700">//</span>
+              <span aria-hidden className="text-gold-600">//</span>
               <span className="text-bone-400">{project.tag}</span>
             </div>
 
@@ -75,7 +75,7 @@ export default function ProjectCard({ project, index, total }) {
                 <motion.li
                   key={t}
                   variants={pop}
-                  className="font-mono text-[10px] tracking-[0.12em] uppercase text-bone-400 border border-gold-700/35 rounded px-2.5 py-1.5"
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-bone-400 border border-gold-700/35 rounded px-2.5 py-1.5"
                 >
                   {t}
                 </motion.li>
@@ -89,7 +89,7 @@ export default function ProjectCard({ project, index, total }) {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-ink-900 bg-gold-400 rounded-full px-6 py-3 hover:bg-gold-300 transition-colors"
+                    className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-ink-900 bg-gold-400 rounded-full px-6 py-3.5 hover:bg-gold-300 transition-colors"
                   >
                     View live
                     <ArrowUpRight
@@ -103,7 +103,7 @@ export default function ProjectCard({ project, index, total }) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-gold-400 border border-gold-700/50 rounded-full px-6 py-3 hover:border-gold-400 hover:bg-gold-400/10 transition-all"
+                    className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-gold-400 border border-gold-700/50 rounded-full px-6 py-3.5 hover:border-gold-400 hover:bg-gold-400/10 transition-all"
                   >
                     <Github size={14} />
                     Source
@@ -115,8 +115,8 @@ export default function ProjectCard({ project, index, total }) {
 
           {/* Right — the spec sheet */}
           <div className="border-t lg:border-t-0 lg:border-l border-gold-700/25 bg-ink-900/40 p-7 md:p-9 flex flex-col justify-center">
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-bone-400 mb-6">
-              <span className="text-gold-700">//</span> Stack details
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-bone-400 mb-6">
+              <span aria-hidden className="text-gold-600">//</span> Stack details
             </div>
             <motion.dl
               variants={stagger(0.09, 0.15)}
@@ -131,7 +131,7 @@ export default function ProjectCard({ project, index, total }) {
                   variants={fadeUp}
                   className="flex items-baseline justify-between gap-4 py-3 border-b border-gold-700/20 last:border-0"
                 >
-                  <dt className="font-mono text-[10px] tracking-[0.15em] uppercase text-bone-400 shrink-0">
+                  <dt className="font-mono text-[11px] tracking-[0.15em] uppercase text-bone-400 shrink-0">
                     {k}
                   </dt>
                   <dd className="text-right text-xs md:text-sm text-bone-100">

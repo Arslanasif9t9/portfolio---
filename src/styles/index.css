@@ -15,6 +15,9 @@
   /* The single accent */
   --color-gold-400: #e8b44a;
   --color-gold-300: #f5d68a;
+  /* Mid gold for decorative separators: gold-700 measured only 3.22:1,
+     which fails AA for the small text it was used on. This is 5.12:1. */
+  --color-gold-600: #a07a2e;
   --color-gold-700: #7a5c22;
 
   /* Type. bone-400 was #8a8a96 — technically AA, but it read as washed-out

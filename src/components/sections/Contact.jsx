@@ -123,7 +123,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="grid h-12 w-12 place-items-center rounded-full border border-gold-700/35 text-bone-400 hover:text-gold-400 hover:border-gold-400 hover:bg-gold-400/10 transition-all duration-300"
+                    className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold-700/35 text-bone-400 hover:text-gold-400 hover:border-gold-400 hover:bg-gold-400/10 transition-all duration-300"
                   >
                     <Icon size={17} />
                   </motion.a>

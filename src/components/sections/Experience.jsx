@@ -92,7 +92,7 @@ export default function Experience() {
                         </div>
 
                         <span
-                          className={`shrink-0 rounded-full border px-3 py-1.5 font-mono text-[10px] tracking-[0.18em] uppercase ${
+                          className={`shrink-0 rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.18em] uppercase ${
                             isCurrent
                               ? 'border-gold-400/60 bg-gold-400/10 text-gold-300'
                               : 'border-gold-700/40 text-bone-400'
@@ -133,7 +133,7 @@ export default function Experience() {
                           {entry.org}
                         </div>
                       </div>
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-bone-400">
+                      <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-bone-400">
                         {entry.period}
                       </span>
                     </motion.div>
@@ -154,7 +154,7 @@ export default function Experience() {
         >
           <motion.span
             variants={fadeUp}
-            className="font-mono text-[10px] tracking-[0.22em] uppercase text-gold-700"
+            className="font-mono text-[11px] tracking-[0.22em] uppercase text-gold-700"
           >
             Languages //
           </motion.span>
