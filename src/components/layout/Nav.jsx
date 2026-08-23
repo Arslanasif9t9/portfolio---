@@ -40,10 +40,11 @@ export default function Nav() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      {/* Deliberately not animated. An entry animation leaves the header at
+          opacity 0 until JS runs, so anything that delays or throttles the
+          first frames shows a page with no navigation at all. For the one
+          element that must always be reachable, present beats polished. */}
+      <header
         className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
           scrolled
             ? 'bg-ink-900/85 backdrop-blur-xl border-b border-gold-700/20'
@@ -88,7 +89,7 @@ export default function Nav() {
             <Menu size={22} />
           </button>
         </nav>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {menuOpen && (
