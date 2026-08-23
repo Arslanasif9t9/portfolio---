@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Source material, not part of the build: the original uncompressed hero
+# video, the reference screenshots, and the zip they arrived in. The shipped
+# video and poster live in src/assets/ instead.
+asset/
