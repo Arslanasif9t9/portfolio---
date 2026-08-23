@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   Design tokens.
+   One warm accent on near-black — deliberately narrow so the gold
+   reads as emphasis rather than decoration.
+   --------------------------------------------------------------- */
+@theme {
+  /* Surfaces, darkest to lightest */
+  --color-ink-900: #08080c;
+  --color-ink-800: #0e0e14;
+  --color-ink-700: #16161f;
+  --color-ink-600: #1f1f2b;
+
+  /* The single accent */
+  --color-gold-400: #e8b44a;
+  --color-gold-300: #f5d68a;
+  --color-gold-700: #7a5c22;
+
+  /* Type. bone-400 was #8a8a96 — technically AA, but it read as washed-out
+     grey against near-black. Lifted to ~8.8:1 so body copy is comfortable;
+     bone-600 keeps the decorative mono micro-labels quiet. */
+  --color-bone-100: #f4f4f6;
+  --color-bone-400: #ababb8;
+  --color-bone-600: #7d7d88;
+
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Section rhythm. 8rem left tall voids between sections once the
+     headline reveals were fixed — 5rem keeps the editorial breathing room
+     without the dead black bands. */
+  --spacing-section: 5rem;
+}
+
+@layer base {
+  html {
+    /* Lenis drives scrolling; native smooth would fight it. */
+    scroll-behavior: auto;
+    /* Clip sideways overflow here, not on <body>. On body it resolves
+       overflow-y to `auto`, turning body into its own scroll container and
+       breaking Lenis's programmatic scrolling. */
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-ink-900);
+    color: var(--color-bone-100);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Anton ships only one weight; let it breathe at display sizes. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-ink-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-400);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Gold gradient fill for the emphasised half of a headline. */
+  .text-gold-grad {
+    background: linear-gradient(
+      180deg,
+      var(--color-gold-300) 0%,
+      var(--color-gold-400) 55%,
+      var(--color-gold-700) 130%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-gold {
+    text-shadow: 0 0 28px rgb(232 180 74 / 0.35);
+  }
+
+  /* Bordered dark panel used by project and skill cards. */
+  .panel {
+    background: linear-gradient(
+      145deg,
+      rgb(22 22 31 / 0.9) 0%,
+      rgb(14 14 20 / 0.9) 100%
+    );
+    border: 1px solid rgb(232 180 74 / 0.18);
+    backdrop-filter: blur(12px);
+  }
+
+  .panel-lit {
+    border-color: rgb(232 180 74 / 0.45);
+    box-shadow: 0 0 40px rgb(232 180 74 / 0.08);
+  }
+}
+
+/* Anyone who asks for less motion gets a static, readable page. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
